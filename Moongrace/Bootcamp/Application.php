@@ -2,14 +2,20 @@
 
 class Application {
 	public $models;
+	public $libs;
+	
 	public function __construct() {
-		
+		$this->loadLib('uri');
+		new Controller($this->uri->segment(0), $this->uri->segment(1));
 	}
 
 	public function __get($value = '') {
 		// If it is a model return it;
 		if(isset($this -> models[$value]))
 			return $this -> models[$value];
+		
+		if(isset($this -> libs[$value]))
+			return $this -> libs[$value];
 	}
 
 	public function loadModel($value = '') {
@@ -30,6 +36,15 @@ class Application {
 			require_once ($file);
 		} else
 			die();
+	}
+	
+	public function loadLib($name = '') {
+		$file = 'Moongrace' . DIRECTORY_SEPARATOR . 'Lib' . DIRECTORY_SEPARATOR . $name . '.php';
+		if(file_exists($file)) {
+			require_once ($file);
+			$this -> libs[$name] = new $name();
+		} else
+			die(sprintf('Lib %s was not found.', $value));
 	}
 
 }
