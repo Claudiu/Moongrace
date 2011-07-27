@@ -5,7 +5,9 @@
 	<title></title>
 </head>
 <body>
-	<h1>HTML5 Test</h1>
-	<p>Yay <?php echo $lol ?></p>
+	<div class="wrap">
+		<h1>You have successfully installed Moongrace</h1>
+		<p></p>
+	</div>
 </body>
 </html>

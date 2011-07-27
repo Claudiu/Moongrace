@@ -3,17 +3,18 @@
 class Application {
 	public $models;
 	public $libs;
-	
+
 	public function __construct() {
-		$this->loadLib('uri');
-		new Controller($this->uri->segment(0), $this->uri->segment(1));
+		$this -> loadLib('uri');
+		new Controller($this -> uri -> segment(0), $this -> uri -> segment(1));
+		new Model();
 	}
 
 	public function __get($value = '') {
 		// If it is a model return it;
 		if(isset($this -> models[$value]))
 			return $this -> models[$value];
-		
+
 		if(isset($this -> libs[$value]))
 			return $this -> libs[$value];
 	}
@@ -37,7 +38,7 @@ class Application {
 		} else
 			die();
 	}
-	
+
 	public function loadLib($name = '') {
 		$file = 'Moongrace' . DIRECTORY_SEPARATOR . 'Lib' . DIRECTORY_SEPARATOR . $name . '.php';
 		if(file_exists($file)) {

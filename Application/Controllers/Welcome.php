@@ -5,10 +5,9 @@ class Welcome extends Controller {
 			
 	}
 	
-	public function index($value='')
+	public function index()
 	{
-		$this->loadModel('test');
-		$this->loadView('index', $this -> test -> test());
+		$this->loadView('index');
 	}
 }
 

@@ -22,6 +22,11 @@ class Uri extends Application {
 		$this -> string = $this -> get_uri_string();
 		$this -> set_array();
 	}
+	
+	public function __get($what='')
+	{
+		if($what == 'string') return $this->string;
+	}
 
 	/**
 	 * Get uri string

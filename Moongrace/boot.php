@@ -5,6 +5,5 @@ foreach (array('Application', 'Controller', 'Model') as $object) {
 }
 
 new Application();
-new Model();
 
 define('DEFAULT_CONTROLLER', 'Welcome');
