@@ -1,5 +1,4 @@
 <?php
-
 class Application {
 	public $models;
 	public $libs;
@@ -39,13 +38,17 @@ class Application {
 			die();
 	}
 
-	public function loadLib($name = '') {
+	public function loadLib($name = '', $param = array()) {
 		$file = 'Moongrace' . DIRECTORY_SEPARATOR . 'Lib' . DIRECTORY_SEPARATOR . $name . '.php';
 		if(file_exists($file)) {
 			require_once ($file);
-			$this -> libs[$name] = new $name();
+			if(empty($param)) {
+				$this -> libs[$name] = new $name();
+			} else {
+				$this -> libs[$name] = new $name($param);
+			}
 		} else
-			die(sprintf('Lib %s was not found.', $value));
+			die(sprintf('Lib %s was not found.', $name));
 	}
 
 }
