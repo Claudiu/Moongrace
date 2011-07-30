@@ -50,5 +50,4 @@ class Application {
 		} else
 			die(sprintf('Lib %s was not found.', $name));
 	}
-
 }
