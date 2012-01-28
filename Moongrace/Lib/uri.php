@@ -52,7 +52,7 @@ class Uri extends Application {
 		if((!isset($this -> segments[1]) || empty($this -> segments[1])) || (!isset($this -> segments[0]) || $this -> segments[0]) == '')
 			$this -> segments[1] = 'index';
 		if(!isset($this -> segments[0]) || $this -> segments[0] == '')
-			$this -> segments[0] = 'Welcome';
+			$this -> segments[0] = DEFAULT_CONTROLLER;
 	}
 
 	/**
