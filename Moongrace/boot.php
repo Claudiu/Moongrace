@@ -1,9 +1,9 @@
 <?php
 
+define('DEFAULT_CONTROLLER', 'Welcome');
+
 foreach (array('Application', 'Controller', 'Model') as $object) { 
 	require_once('Bootcamp'.DIRECTORY_SEPARATOR.$object.'.php');
 }
 
 new Application();
-
-define('DEFAULT_CONTROLLER', 'Welcome');
