@@ -7,6 +7,8 @@
 	
 	
 	define('APP', 'Application');
+	define('DEFAULT_CONTROLLER', 'Welcome');
+
 	require_once('Moongrace/boot.php');	
 	
 ?>
