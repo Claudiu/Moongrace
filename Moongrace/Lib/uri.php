@@ -34,7 +34,7 @@ class Uri extends Application {
 	 * @return string
 	 * @author Claudiu Tașcă
 	 */
-	private function get_uri_string() {
+	public function get_uri_string() {
 		$uri = $_SERVER['REQUEST_URI'];
 		$uri = str_replace($_SERVER['SCRIPT_NAME'] . '/', '', $uri);
 		$uri = str_replace($_SERVER['SCRIPT_NAME'] . '', '', $uri);
@@ -53,6 +53,11 @@ class Uri extends Application {
 			$this -> segments[1] = 'index';
 		if(!isset($this -> segments[0]) || $this -> segments[0] == '')
 			$this -> segments[0] = DEFAULT_CONTROLLER;
+	}
+
+	public function route($uri_string = '') {
+	    if($uri_string=='main') return array('Controller'=>'Welcome', 'Action'=>'index', array());
+	    else return array('Controller' => $this -> segment(0), 'Action' => $this -> segment(1), array());
 	}
 
 	/**

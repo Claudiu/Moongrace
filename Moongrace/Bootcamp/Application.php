@@ -5,7 +5,8 @@ class Application {
 
 	public function __construct() {
 		$this -> loadLib('uri');
-		new Controller($this -> uri -> segment(0), $this -> uri -> segment(1));
+        $route = $this -> uri -> route ( $this -> uri -> get_uri_string() );
+		new Controller($route['Controller'], $route['Action']);
 		new Model();
 	}
 
