@@ -1,7 +1,7 @@
 <?php
 
 class Controller extends Application {
-	public function __construct($name = 'Welcome', $action = 'index') {
+	public function __construct($name = DEFAULT_CONTROLLER, $action = 'index') {
 		$file = APP . '/Controllers/' . $name . '.php';
 		if(!file_exists($file))
 			$this->error404();
