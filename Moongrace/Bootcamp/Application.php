@@ -2,10 +2,12 @@
 class Application {
 	public $models;
 	public $libs;
+	public $config;
 
-	public function __construct() {
+	public function __construct($config = array()) {
 		$this -> loadLib('uri');
-        $route = $this -> uri -> route ( $this -> uri -> get_uri_string() );
+		$this -> config = $config;
+        $route = $this -> uri -> route ( $this -> uri -> get_uri_string(), $config['routes'] );
 		new Controller($route['Controller'], $route['Action']);
 		new Model();
 	}

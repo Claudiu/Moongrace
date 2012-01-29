@@ -55,8 +55,14 @@ class Uri extends Application {
 			$this -> segments[0] = DEFAULT_CONTROLLER;
 	}
 
-	public function route($uri_string = '') {
-	    if($uri_string=='main') return array('Controller'=>'Welcome', 'Action'=>'index', array());
+	/**
+	 * Reveals real path
+	 *
+	 * @return array
+	 * @author Claudiu Tașcă
+	 */
+	public function route($uri_string = '', $routes = array()) {
+	    if(array_key_exists($uri_string, $routes)) return array('Controller'=>$routes[$uri_string]['Controller'], 'Action'=>$routes[$uri_string]['Action'], array());
 	    else return array('Controller' => $this -> segment(0), 'Action' => $this -> segment(1), array());
 	}
 
