@@ -9,7 +9,9 @@ class Application {
 		$this -> config = $config;
         $route = $this -> uri -> route ( $this -> uri -> get_uri_string(), $config['routes'] );
 		new Controller($route['Controller'], $route['Action']);
-		new Model();
+		
+		foreach (array('Idiorm', 'Paris') as $key)
+		require_once('Moongrace' . DIRECTORY_SEPARATOR . 'Lib' . DIRECTORY_SEPARATOR . $key . '.php');
 	}
 
 	public function __get($value = '') {
