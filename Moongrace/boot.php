@@ -1,8 +1,11 @@
 <?php
 
-foreach (array('Application', 'Controller', 'Model') as $object) { 
-	require_once('Bootcamp'.DIRECTORY_SEPARATOR.$object.'.php');
+function load_core($class) {
+    $file = 'Moongrace'.DIRECTORY_SEPARATOR.'Bootcamp'.DIRECTORY_SEPARATOR.$class.'.php';
+    require_once($file);
 }
+
+spl_autoload_register('load_core');
 
 $config = array();
 
