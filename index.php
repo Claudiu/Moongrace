@@ -7,6 +7,7 @@
 	
 	define('APP', 'Application');
 	define('DEFAULT_CONTROLLER', 'Welcome');
+	define('MG_VERSION', '1.04 ALPHA');
 
 	require_once('Moongrace/boot.php');	
 	
